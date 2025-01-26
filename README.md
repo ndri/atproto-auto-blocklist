@@ -1,6 +1,6 @@
 # atproto-auto-blocklist
 
-This is a script that allows you to automatically generate a blocklist (AKA moderation list) for Bluesky based on a query.
+This is a script that allows you to automatically generate a blocklist (AKA moderation list) for Bluesky based on users' display names, handles or bios.
 
 ## Usage
 
@@ -18,7 +18,7 @@ You can configure the script with command line arguments, environment variables 
 
 To run this script, you need to set your Bluesky login credentials, the ID of the blocklist to add users to, the search term to find users with and the query to filter the found users.
 
-The reason there is both a search term and a query is that the AT Protocol only allows you to search users with a simple text query that finds users based on their name, handle or bio and it can return some users that you don't want to block. The query is used to filter out those users.
+The reason for both a search term and a query is that the AT Protocol only allows you to search users with a simple text query that finds users based on their name, handle or bio and it can return some users that you don't want to block. The query is used to filter out those users and to make sure you only block the users you want to block.
 
 ### Environment variables
 
@@ -50,7 +50,7 @@ Command line arguments take precedence over environment variables.
 options:
   -h, --help            show this help message and exit
   -u USERNAME, --username USERNAME
-                        Your ATProto username
+                        Your ATProto username.
   -p PASSWORD, --password PASSWORD
                         Your ATProto app password. Generate one at https://bsky.app/settings/app-passwords.
   -l LIST_ID, --list-id LIST_ID
@@ -59,7 +59,7 @@ options:
                         The term to search AT Protocol users for.
   -q QUERY, --query QUERY
                         A Lucene query to filter the found users with. Necessary because the search term will find users that don't exactly match the search term.
-  -d, --dry-run         Whether to actually add users to the blocklist.
+  -d, --dry-run         Whether to simulate adding users to the blocklist without actually doing it. Useful for testing queries.
   -x, --quiet           Whether to suppress output. Useful if running as a cron job.
 ```
 

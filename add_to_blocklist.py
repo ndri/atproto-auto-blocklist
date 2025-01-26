@@ -1,6 +1,6 @@
 """
-Script that searches for AT Protocol users based on a search term and adds them to a
-blocklist if they match a query.
+This is a script that allows you to automatically generate a blocklist (AKA moderation
+list) for Bluesky based on users' display names, handles or bios.
 """
 
 import os
@@ -16,7 +16,7 @@ def main():
     parser.add_argument(
         "-u",
         "--username",
-        help="Your ATProto username",
+        help="Your ATProto username.",
         default=os.getenv("USERNAME"),
     )
     parser.add_argument(
@@ -46,7 +46,7 @@ def main():
     parser.add_argument(
         "-d",
         "--dry-run",
-        help="Whether to actually add users to the blocklist.",
+        help="Whether to simulate adding users to the blocklist without actually doing it. Useful for testing queries.",
         action="store_true",
     )
     parser.add_argument(
